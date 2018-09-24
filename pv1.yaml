@@ -1,0 +1,12 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: task-pv1
+spec:
+  capacity:
+    storage: 100Gi
+  accessModes:
+    - ReadWriteMany
+  awsElasticBlockStore:
+    volumeID: vol-04facbd110420620c
+    fsType: ext4

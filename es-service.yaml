@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name:   
+  namespace: kube-system
+  labels:
+    k8s-app: elasticsearch-logging
+    kubernetes.io/cluster-service: "true"
+    addonmanager.kubernetes.io/mode: Reconcile
+    kubernetes.io/name: "Elasticsearch"
+spec:
+  ports:
+  - nodePort: 30200
+    port: 9200
+    protocol: TCP
+    targetPort: db
+  selector:
+    k8s-app: elasticsearch-logging
+  type: NodePort
